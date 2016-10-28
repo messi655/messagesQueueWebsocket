@@ -1,10 +1,8 @@
-###############################################################################
-########################### Diagram of application ############################
-###############################################################################
 
-#################################################################################################
-##### users -> (https) producer api -> RabbiMQ -> consumer api -> websocket -> (http) users #####
-#################################################################################################
+######### Diagram of application
+
+    users -> (https) producer api -> RabbiMQ -> consumer api -> websocket -> (http) users
+
 
 Description:
     - Producer will be hosting on Tomcat 7.0.72 and expose port 8443 with https protocol
@@ -12,9 +10,9 @@ Description:
     - Consumer will be hosting on Tomcat 7.0.72 and expose port 8080 with http protocol
     - websocket will hosting on nginx and expose port 80 with https protocol
 
-###############################################################################
-########################### System information ################################
-###############################################################################
+
+########### System information
+
 - OS: Ubuntu 16.04
 - Docker:
     - Docker compose: docker-compose version 1.8.0
@@ -23,17 +21,12 @@ Description:
 - JDK: 1.8
 
 
-
-########################################################################################################################
-###########################                                                           ##################################
-########################### Step by step to build and run message queue api           ##################################
-###########################                                                           ##################################
-########################################################################################################################
-
+####### Step by step to build and run message queue api
 
 Step 1. Run script mainscript.sh , this script will create some folders in /apps
 
 Step 2. Build docker images for each service
+
     1. Producer API:
         a. Build producer docker images: Go to `rabbitmqProducer/docker` folder and execute `dockerbuild.sh` script
         b. Build producer api uses maven: Go to `rabbitmqProducer/scripts` folder and execute `maven_build_rabbitmqProducer.sh` script
