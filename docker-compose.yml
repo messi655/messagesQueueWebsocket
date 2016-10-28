@@ -1,0 +1,38 @@
+version: '2'
+services:
+
+  rabbitmq:
+    image: rabbitmq/lz
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  producer:
+    image: tomcat/https
+    volumes:
+      - /apps/producer:/srv/tomcat/webapps/
+      - /apps/certs:/certs
+      - /apps/config:/apps/config
+    ports:
+      - "8443:8443"
+    links:
+      - rabbitmq
+
+  consumer:
+    image: tomcat/http-lz
+    volumes:
+      - /apps/consumer:/srv/tomcat/webapps/
+      - /apps/config:/apps/config
+    ports:
+      - "8080:8080"
+    links:
+      - rabbitmq
+
+  websocketclient:
+    image: nginx/lz
+    volumes:
+      - /apps/websocketclient:/usr/share/nginx/html
+    ports:
+      - "80:80"
+    links:
+      - consumer
