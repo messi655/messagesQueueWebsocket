@@ -69,18 +69,21 @@ public class ConsumerWebSocket {
 
 	@OnMessage
     public void onMessage(String message, Session session) 
-    	throws IOException, InterruptedException, TimeoutException {
+    	throws IOException, InterruptedException {
 		
 		// Send the first message to the client
 		session.getBasicRemote().sendText("This is the first server message");
 		
-				
+		loadConfig();		
 		fact = endpoint.rabbitmqConnect();
-		connection = fact.newConnection();
-        channel = connection.createChannel();
-        loadConfig();
-
-        channel.queueDeclare(queuename, false, false, false, null);
+		try {
+			connection = fact.newConnection();
+			channel = connection.createChannel();
+	        channel.queueDeclare(queuename, false, false, false, null);
+		} catch (TimeoutException e) {
+			System.out.println("Can't connect to rabbitmq server: " + e.getMessage());
+		}
+        
 
         QueueingConsumer consumer = new QueueingConsumer(channel);
         channel.basicConsume(queuename, false, consumer);

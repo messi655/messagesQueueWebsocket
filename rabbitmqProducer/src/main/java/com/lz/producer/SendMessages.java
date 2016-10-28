@@ -62,31 +62,30 @@ public class SendMessages{
 			br.close();
 		}
 	
-	public void sendMessage(String mesg) throws IOException{
+	public void sendMessage(String mesg) {
 		
 		fact = endpoint.rabbitmqConnect();
-		connection = fact.newConnection();
-		channel = connection.createChannel();
+		try {
+			connection = fact.newConnection();
+			channel = connection.createChannel();
+			loadConfig();		
+			channel.queueDeclare(queuename, false, false, false, null);
+			channel.basicPublish("", queuename, null, mesg.getBytes());
+			System.out.println("Messages " + mesg + " sent");
+		} catch (IOException e) {
+			System.out.println("Can't connect to rabbitmq server: " + e.getMessage());
+		}
 		
-		loadConfig();
 		
-		channel.queueDeclare(queuename, false, false, false, null);
-		channel.basicPublish("", queuename, null, mesg.getBytes());
 		
-		System.out.println("Messages " + mesg + " sent");
 	}
 	
 	
 		
 	public static void main(String[] args) {
 		SendMessages send = new SendMessages();
-		try {
-			send.sendMessage("Hell");
-			//send.receiveMessage();
-		} catch (IOException e) {
-			System.out.println("Please check your queue server");
-			e.printStackTrace();
-		}
+		
+		send.sendMessage("Hell");
 	}
 
 }

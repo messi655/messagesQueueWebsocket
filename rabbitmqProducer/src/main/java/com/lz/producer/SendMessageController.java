@@ -22,15 +22,15 @@ public class SendMessageController {
 		if(text == null || text.isEmpty()){
 			return "error";
 		}
+		
 		else{
 			mesg = "The message has been sent!";
 			model.addAttribute("mesg", mesg);
 			model.addAttribute("text", text);
 			sendService.sendMessage(text);
-			
+			return "send";
 		}
-		return "send";
-		
+				
 	}
 
 }
