@@ -11,7 +11,7 @@ Description:
     - RabbitMQ is message queue server, this expose port 5672 and 15672
 
     - Consumer will be hosting on Tomcat 7.0.72 and expose port 8080 with http protocol
-    
+
     - websocket will hosting on nginx and expose port 80 with https protocol
 
 
@@ -50,4 +50,15 @@ Step 3. Start docker container
     - To run docker container for these servers we use docker compose to control this.
     - Start docker container by docker compose: `sudo docker-compose up`
     - Check docker container started: `sudo docker ps -a` 
+
+
+############# Testing
+
+- Access rabbitmq management: http://your_docker_host:15672/ (EX: http://localhost:15672/)
+- Client UI: http://your_docker_host/ (EX: http://localhost/)
+- Producer link: https://localhost:8443/rabbitmqProducer/send
+
+#Note: You can access to each endpoint api to get information:
+    - Producer: https://your_docker_host:8443/rabbitmqProducer/
+    - Consumer: http://your_docker_host:8080/rabbitmqConsumer/
       
