@@ -1,8 +1,6 @@
 #!/bin/bash
 cd .. 
 mvn clean install
-sudo mkdir -p /apps/producer
-sudo rm -rf /apps/producer/*
-sudo chmod 777 -R /apps/*
+rm -rf /apps/producer/*
 cp target/*.war /apps/producer
 cp docker/keystore /apps/certs

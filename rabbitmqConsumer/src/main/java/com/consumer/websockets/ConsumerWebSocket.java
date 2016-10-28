@@ -71,9 +71,6 @@ public class ConsumerWebSocket {
     public void onMessage(String message, Session session) 
     	throws IOException, InterruptedException, TimeoutException {
 		
-		// Print the client message for testing purposes
-		System.out.println("Received: " + message);
-		
 		// Send the first message to the client
 		session.getBasicRemote().sendText("This is the first server message");
 		
