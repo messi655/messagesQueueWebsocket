@@ -2,7 +2,11 @@
 ########################### Diagram of application ############################
 ###############################################################################
 
-#Work Follow: users -> (https) producer api -> RabbiMQ -> consumer pi -> websocket -> (http) users
+#################################################################################################
+##### users -> (https) producer api -> RabbiMQ -> consumer api -> websocket -> (http) users #####
+#################################################################################################
+
+Description:
     - Producer will be hosting on Tomcat 7.0.72 and expose port 8443 with https protocol
     - RabbitMQ is message queue server, this expose port 5672 and 15672
     - Consumer will be hosting on Tomcat 7.0.72 and expose port 8080 with http protocol
