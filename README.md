@@ -5,9 +5,13 @@
 
 
 Description:
+
     - Producer will be hosting on Tomcat 7.0.72 and expose port 8443 with https protocol
+
     - RabbitMQ is message queue server, this expose port 5672 and 15672
+
     - Consumer will be hosting on Tomcat 7.0.72 and expose port 8080 with http protocol
+    
     - websocket will hosting on nginx and expose port 80 with https protocol
 
 
