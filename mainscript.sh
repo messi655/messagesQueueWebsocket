@@ -18,3 +18,6 @@ sudo mkdir -p /apps/websocketclient
 echo "set permission of /apps"
 sudo chmod 777 /apps/* 
 
+echo "Copy rabbitmq config to /apps/config"
+cp config.properties /apps/config/
+
