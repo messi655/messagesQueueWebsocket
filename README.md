@@ -22,10 +22,15 @@ Description:
     - Docker compose: docker-compose version 1.8.0
     - Docker engine: Docker version 1.11.2
 
-- JDK: 1.8
+- JDK: 1.7
 
 
 ####### Step by step to build and run message queue api
+- Automation:
+    Step 1. Run script `AIO.sh`
+    Step 2. Run command: `sudo docker-compose up`
+
+- Manually:
 
 Step 1. Run script mainscript.sh , this script will create some folders in /apps
 
