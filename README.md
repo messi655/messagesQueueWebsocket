@@ -26,11 +26,11 @@ Description:
 
 
 ####### Step by step to build and run message queue api
-- Automation:
-    Step 1. Run script `AIO.sh`
-    Step 2. Run command: `sudo docker-compose up`
+Automation:
+    - Step 1. Run script `AIO.sh`
+    - Step 2. Run command: `sudo docker-compose up`
 
-- Manually:
+Manually:
 
 Step 1. Run script mainscript.sh , this script will create some folders in /apps
 
