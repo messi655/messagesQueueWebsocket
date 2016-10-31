@@ -54,6 +54,7 @@ Step 2. Build docker images for each service
         b. Copy source code to map volume  uses maven: Go to `websocketclient/scripts` folder and execute `deploy_websocketclient.sh` script
 
 Step 3. Start docker container
+
     - To run docker container for these servers we use docker compose to control this.
     - Start docker container by docker compose: `sudo docker-compose up`
     - Check docker container started: `sudo docker ps -a` 
@@ -65,6 +66,10 @@ Step 3. Start docker container
 - Client UI: http://your_docker_host/ (EX: http://localhost/)
 - Producer link: https://your_docker_host:8443/rabbitmqProducer/send
 - Consumer endpoint (websocket server endpoint): http://your_docker_host:8080/rabbitmqConsumer/receive
+- Send text to rabbitmq via producer api and get message via consumer api and show on UI by use websocket:
+
+   - curl -k --data "text=xxxx" https://your_docker_host:8443/rabbitmqProducer/send
+   - Open browse and enter url: http://your_docker_host
 
 #Note: You can access to each endpoint api to get information:
     - Producer: https://your_docker_host:8443/rabbitmqProducer/
