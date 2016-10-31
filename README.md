@@ -63,7 +63,8 @@ Step 3. Start docker container
 
 - Access rabbitmq management: http://your_docker_host:15672/ (EX: http://localhost:15672/)
 - Client UI: http://your_docker_host/ (EX: http://localhost/)
-- Producer link: https://localhost:8443/rabbitmqProducer/send
+- Producer link: https://your_docker_host:8443/rabbitmqProducer/send
+- Consumer endpoint (websocket server endpoint): http://your_docker_host:8080/rabbitmqConsumer/receive
 
 #Note: You can access to each endpoint api to get information:
     - Producer: https://your_docker_host:8443/rabbitmqProducer/
