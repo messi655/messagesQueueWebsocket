@@ -1,3 +1,3 @@
-com/lz/producer/RabbitMQEndPoint.class
-com/lz/producer/SendMessageController.class
 com/lz/producer/SendMessages.class
+com/lz/producer/SendMessageController.class
+com/lz/producer/RabbitMQEndPoint.class

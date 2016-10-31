@@ -21,7 +21,7 @@ Description:
 - Docker:
     - Docker compose: docker-compose version 1.8.0
     - Docker engine: Docker version 1.11.2
-
+- Maven: Maven compiler plugin 3.2
 - JDK: 1.7
 
 

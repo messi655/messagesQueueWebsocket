@@ -18,7 +18,7 @@ public class SendMessageController {
 	String mesg = "";
 	
 	@RequestMapping("/send")
-	public String send(Model model, @RequestParam(value = "text", required = false) String text) throws IOException{
+	public String send(Model model, @RequestParam(value = "text", required = false) String text) {
 		if(text == null || text.isEmpty()){
 			return "error";
 		}
